@@ -12,7 +12,7 @@
 
 `iptables -A OUTPUT -p tcp --sport 你的vps端口号 -j ACCEPT`
 
-service iptables save
+`service iptables save`
 
 ## 安装命令:
 
