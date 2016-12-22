@@ -1,6 +1,5 @@
 # FinalSpeed
-服务器TCP双边加速软件可达到90%的物理带宽利用率
-
+服务器TCP双边加速软件可达到90%的物理带宽利用率，直观讲就是油管上看4K视频无压力！
 [FinalSpeed官方停止维护更新](http://www.ip4a.com/t/944.html)
 
 
@@ -50,4 +49,4 @@ sh /fs/restart.sh
 
 windows 版: 在cnf目录下新建文件listen_port,文件内容为端口号.
 
-注意:由于finalspeed的工作原理,不要开放finalspeed所使用的tcp端口.
+注意:由于finalspeed的工作原理,不要开放finalspeed所使用的tcp端口.即安全组中编辑入站规则添加开放FS端口的UDP协议入站
