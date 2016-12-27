@@ -51,6 +51,7 @@ vi /etc/rc.local
 ```
 在`exit 0`前面添加：
 `	sh /fs/start.sh`  
+
 设置每天凌晨三点重启服务,更多参数请查询Crontab表达式：
 `crontab -e`
 `0 3 * * * sh /fs/restart.sh`
