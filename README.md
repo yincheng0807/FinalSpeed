@@ -3,8 +3,7 @@
 [FinalSpeed官方停止维护更新](http://www.ip4a.com/t/944.html)
 
 
-## 开放端口
-
+## 开放端口,一般的话该步骤不需要，除非你需要指定其他端口，默认是150端口。
 `service iptables start`
 
 `iptables -A INPUT -p tcp --dport 你的vps端口号 -j ACCEPT`
@@ -22,6 +21,8 @@
 `chmod +x install_fs.sh`
 
 `./install_fs.sh 2>&1 | tee install.log`
+debian，ubuntu下如果执行脚本出错，需要切换到 dash：
+`sudo dpkg-reconfigure dash`
 
 ## 常用命令使用说明
 
@@ -36,7 +37,23 @@
 重新启动： `sh /fs/restart.sh`
 
 运行日志： `tail -f /fs/server.log`
-
+如果以上步骤报错：`ohup: failed to run command 'java': No such file or directory`
+请安装JAVA，ubuntu可能不带java，[官方教程>>](http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html)
+```
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+```
+## 设置开机启动和定时任务：
+```
+chmod +x /etc/rc.local
+vi /etc/rc.local
+```
+在`exit 0`前面添加：
+`	sh /fs/start.sh`  
+设置每天凌晨三点重启服务,更多参数请查询Crontab表达式：
+`crontab -e`
+`0 3 * * * sh /fs/restart.sh`
 ## 设置服务端口：
 默认udp 150和tcp 150 ,修改端口后服务端会自动修改防火墙
 
