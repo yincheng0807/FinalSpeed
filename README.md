@@ -54,6 +54,7 @@ vi /etc/rc.local
 
 设置每天凌晨三点重启服务,更多参数请查询Crontab表达式：
 `crontab -e`
+
 `0 3 * * * sh /fs/restart.sh`
 ## 设置服务端口：
 默认udp 150和tcp 150 ,修改端口后服务端会自动修改防火墙
